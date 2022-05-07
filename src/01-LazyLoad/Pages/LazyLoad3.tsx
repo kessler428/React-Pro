@@ -7,3 +7,5 @@ export const LazyLoad3 = () => {
     </div>
   )
 }
+
+export default LazyLoad3;
