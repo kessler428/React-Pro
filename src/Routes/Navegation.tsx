@@ -1,6 +1,6 @@
 import { Suspense } from "react"
-import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-dom"
-import { routes } from "./Routes"
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
+import { ShoppingPage } from "../02-components-patterns/pages/ShoppingPage"
 import logo from '../logo.svg'
 
 export const Navegation = () => {
@@ -11,28 +11,36 @@ export const Navegation = () => {
                 <nav>
                     <img src={logo} alt="React Logo" />
                     <ul>
-                        {
-                            routes.map( ({ to, name}) => (
-                                <li key={ to }>
-                                    <NavLink 
-                                        className={ ({isActive}) => isActive ? 'nav-active' : ''} to={ to }                  
-                                    >
-                                        { name }
-                                    </NavLink>
-                                </li>
-                            ))
-                        }
+                        <li>
+                            <NavLink 
+                                className={ ({isActive}) => isActive ? 'nav-active' : ''} to='shopping'                  
+                            >
+                                Shopping
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink 
+                                className={ ({isActive}) => isActive ? 'nav-active' : ''} to='users'                  
+                            >
+                                Users
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink 
+                                className={ ({isActive}) => isActive ? 'nav-active' : ''} to='about'                  
+                            >
+                                About
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    {
-                        routes.map( ({ path, Component}) => (
-                            <Route key={ path } path={path} element={ <Component /> }/>
-                        ))
-                    }
+                    <Route path='/about' element={ <h1>About</h1> }/>
+                    <Route path='/users' element={ <h1>Users</h1> }/>
+                    <Route path='/shopping' element={ <ShoppingPage /> }/>
 
-                    <Route path="/*" element={ <Navigate to={ routes[0].to } replace /> }/>
+                    <Route path="/*" element={<span>Page Not Found</span>}/>
                 </Routes>
             </div>
             </BrowserRouter>
