@@ -10,7 +10,7 @@ const product = {
 export const ShoppingPage = () => {
 
     return (
-        <div>
+        <div >
             <h1>Sopping Store</h1>
             <hr />
             <div style={{
@@ -18,14 +18,35 @@ export const ShoppingPage = () => {
                 flexDirection: 'row',
                 flexWrap: 'wrap'
             }}>
-                <ProductCard product={ product }>
+                <ProductCard 
+                    product={ product }
+                    className='bg-dark text-white'
+                >
+                    <ProductCard.Image className="custom-image" />
+                    <ProductCard.Title title="coffe" />
+                    <ProductCard.Buttons className="buttons"  />
+                </ProductCard>
 
-                    <ProductImage />
-
-                    <ProductTitle />
-
-                    <ProductButtons />
-
+                <ProductCard 
+                    product={ product }
+                    style={{
+                        backgroundColor : '#0B6A86'
+                    }}
+                >
+                    <ProductImage style={{
+                        padding: '10px',
+                        width: 'calc(100% - 20px)',
+                        borderRadius: '20px'
+                    }}/>
+                    <ProductTitle style={{
+                        color: 'white',
+                        fontSize: '20px',
+                        fontWeight: 'bold'
+                    }} />
+                    <ProductButtons style={{
+                        color: "white",
+                        borderColor: '#FFFFFF'
+                    }}/>
                 </ProductCard>
                 
             </div>
