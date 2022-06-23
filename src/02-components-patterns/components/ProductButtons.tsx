@@ -10,7 +10,7 @@ export interface PropsButtons {
 
 export const ProductButtons = ({ className, style }: PropsButtons) => {
 
-    const {increaseBy, counter } = useContext( ProductContext )
+    const { increaseBy, counter } = useContext( ProductContext )
 
     return (
         <div className={ `${styles.buttonsContainer} ${className}`} style={ style }>
